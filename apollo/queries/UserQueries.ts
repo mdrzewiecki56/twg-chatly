@@ -10,8 +10,12 @@ export const GET_USER = gql`
 export const GET_USERS = gql`
   query GetUsers {
     users {
+      email
+      firstName
       id
-      name
+      lastName
+      profilePic
+      role
     }
   }
 `;
