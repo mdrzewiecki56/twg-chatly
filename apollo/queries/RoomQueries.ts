@@ -1,31 +1,44 @@
 import { gql } from "@apollo/client";
 
 export const GET_ROOM = gql`
-  query GetRoom {
-    room {
+  query GetRoom($id: ID!) {
+    room(id: $id) {
       id
+      messages {
+        id
+        body
+        insertedAt
+        user {
+          id
+        }
+      }
       name
+      roomPic
+      user {
+        id
+      }
     }
   }
 `;
-export const GET_ROOMS = gql`
-  query GetRooms {
-    rooms {
-      id
-      name
-    }
-  }
-`;
+
 export const GET_USERS_ROOMS = gql`
   query GetUsersRooms {
     usersRooms {
-      user {
-        email
-        firstName
-        lastName
+      rooms {
         id
-        role
+        name
+        roomPic
       }
+    }
+  }
+`;
+
+export const MESSAGE_ADDED_SUBSCRIPTION = gql`
+  subscription OnMessageAdded($roomId: String!) {
+    messageAdded(roomId: $roomId) {
+      body
+      id
+      insertedAt
     }
   }
 `;

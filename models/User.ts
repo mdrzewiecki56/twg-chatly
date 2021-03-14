@@ -1,8 +1,8 @@
 interface User {
-  email: String;
-  firstName: String;
+  email: string;
+  firstName: string;
   id: number;
-  lastName: String;
-  profilePic: String;
-  role: String;
+  lastName: string;
+  profilePic: string;
+  role: string;
 }

@@ -2,40 +2,36 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { useQuery } from "@apollo/client";
 import Loader from "../../../components/Loader";
-import { GET_USERS } from "../../../apollo/queries/UserQueries";
+import { GET_USERS_ROOMS } from "../../../apollo/queries/RoomQueries";
 import CircleIcon from "../../../components/CircleIcon";
-const ContactList = () => {
-  const { data: users, error, loading } = useQuery(GET_USERS);
 
+interface Props {
+  contacts: SingleRoom[];
+  onContactPress: (id: string) => void;
+}
+const ContactList: React.FC<Props> = ({ onContactPress, contacts }) => {
   return (
     <View style={styles.ContactList}>
       <View>
-        <Text style={styles.ContactList__Header}>Chat with your friends</Text>
+        <View style={styles.ContactList__Header}>
+          <Text style={styles.ContactList__Header__Text}>
+            Chat with your friends
+          </Text>
+        </View>
+
         <View style={styles.ContactList__List}>
-          {loading ? (
+          {!contacts ? (
             <Loader backgroundColor="#5b61b9" color="#ffffff" />
           ) : (
             <>
-              <CircleIcon
-                icon={require("../../../resources/humanIcon.svg")}
-                style={iconStyles.CircleIcon}
-              />
-              <CircleIcon
-                icon={require("../../../resources/humanIcon.svg")}
-                style={iconStyles.CircleIcon}
-              />
-              <CircleIcon
-                icon={require("../../../resources/humanIcon.svg")}
-                style={iconStyles.CircleIcon}
-              />
-              <CircleIcon
-                icon={require("../../../resources/humanIcon.svg")}
-                style={iconStyles.CircleIcon}
-              />
-              <CircleIcon
-                icon={require("../../../resources/humanIcon.svg")}
-                style={iconStyles.CircleIcon}
-              />
+              {contacts.map((c: SingleRoom) => (
+                <CircleIcon
+                  key={c.id}
+                  style={iconStyles.CircleIcon}
+                  onPress={() => onContactPress(c.id)}
+                  icon={c.roomPic}
+                />
+              ))}
             </>
           )}
         </View>
@@ -53,15 +49,17 @@ const iconStyles = {
 const styles = StyleSheet.create({
   ContactList: {
     backgroundColor: "#5b61b9",
-    height: "210px",
+    height: "240px",
   },
   ContactList__Header: {
     paddingTop: "40px",
     paddingLeft: "25px",
     marginBottom: "1rem",
     maxWidth: "150px",
+  },
+  ContactList__Header__Text: {
     color: "#fff",
-    fontSize: "120%",
+    fontSize: 20,
     fontWeight: "700",
   },
   ContactList__List: {

@@ -1,6 +1,6 @@
 interface Message {
-  body: String;
+  body: string;
   id: number;
-  insertedAt: String;
+  insertedAt: string;
   user: User;
 }

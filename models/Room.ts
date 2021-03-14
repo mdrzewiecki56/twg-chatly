@@ -1,15 +1,15 @@
 interface Room {
-  id: String;
+  id: string;
   messages: [Message];
-  name: String;
-  roomPic: String;
+  name: string;
+  roomPic: string;
   user: User;
 }
 
 interface SingleRoom {
-  id: String;
-  name: String;
-  roomPic: String;
+  id: string;
+  name: string;
+  roomPic: string;
 }
 
 interface Rooms {

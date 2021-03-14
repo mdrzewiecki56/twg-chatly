@@ -1,25 +1,25 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, Pressable } from "react-native";
 
 interface Props {
-  style: {};
+  style?: {};
+  onPress?: () => void;
   icon: string;
 }
 
-const CircleIcon: React.FC<Props> = ({ style, icon }) => {
-  console.log({ height: "50px", width: "50px", borderRadius: 50, ...style });
+const CircleIcon: React.FC<Props> = ({ style, icon, onPress }) => {
   return (
-    <Image
-      style={{
-        height: "50px",
-        width: "50px",
-        borderRadius: 50,
-        ...style,
-      }}
-      source={{
-        uri: icon,
-      }}
-    />
+    <Pressable onPress={onPress}>
+      <Image
+        style={{
+          height: "50px",
+          width: "50px",
+          borderRadius: 50,
+          ...style,
+        }}
+        source={{ uri: icon ? icon : "https://via.placeholder.com/100" }}
+      />
+    </Pressable>
   );
 };
 
