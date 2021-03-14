@@ -10,9 +10,8 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ navigation }) => {
-  const { data, loading, error } = useQuery(GET_USERS_ROOMS);
+  const { data, loading } = useQuery(GET_USERS_ROOMS);
   const handleContactIconPress = (id: string) => {
-    console.log("navigated");
     navigation.push("Room", {
       roomId: id,
     });
@@ -24,15 +23,18 @@ const Home: React.FC<Props> = ({ navigation }) => {
         onContactPress={handleContactIconPress}
         contacts={loading ? [] : data.usersRooms.rooms}
       />
-      <RoomList rooms={loading ? [] : data.usersRooms.rooms} />
+      <RoomList
+        rooms={loading ? [] : data.usersRooms.rooms}
+        onRoomPress={handleContactIconPress}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    maxWidth: "100vw",
-    maxHeight: "100vh",
+    width: "100vw",
+    height: "100vh",
   },
 });
 

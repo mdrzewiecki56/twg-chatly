@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { ApolloProvider } from "@apollo/client";
 import client from "./apollo/client";
 import Home from "./screens/Home/Home";
+import Room from "./screens/Room/Room";
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -19,7 +20,7 @@ const App = () => {
           }}
         >
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Room" component={Home} />
+          <Stack.Screen name="Room" component={Room} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>

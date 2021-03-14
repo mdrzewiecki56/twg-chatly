@@ -10,6 +10,7 @@ export const GET_ROOM = gql`
         insertedAt
         user {
           id
+          profilePic
         }
       }
       name
@@ -39,6 +40,20 @@ export const MESSAGE_ADDED_SUBSCRIPTION = gql`
       body
       id
       insertedAt
+    }
+  }
+`;
+
+export const ADD_MESSAGE = gql`
+  mutation sendMessage($body: String!, $roomId: String!) {
+    sendMessage(body: $body, roomId: $roomId) {
+      body
+      id
+      insertedAt
+      user {
+        id
+        profilePic
+      }
     }
   }
 `;

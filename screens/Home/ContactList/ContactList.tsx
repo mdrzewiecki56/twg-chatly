@@ -1,8 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import { useQuery } from "@apollo/client";
 import Loader from "../../../components/Loader";
-import { GET_USERS_ROOMS } from "../../../apollo/queries/RoomQueries";
 import CircleIcon from "../../../components/CircleIcon";
 
 interface Props {
