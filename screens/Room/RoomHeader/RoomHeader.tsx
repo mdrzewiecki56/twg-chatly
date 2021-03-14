@@ -28,7 +28,7 @@ const RoomHeader: React.FC<Props> = ({ onBackPress, roomName }) => {
 const styles = StyleSheet.create({
   RoomHeader: {
     backgroundColor: "#5b61b9",
-    height: "240px",
+    height: "200px",
   },
 
   RoomHeader__Header: {

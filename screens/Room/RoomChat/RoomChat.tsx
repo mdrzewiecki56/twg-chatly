@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { GiftedChat, IMessage } from "react-native-gifted-chat";
-import { useMutation } from "@apollo/client";
-import { ADD_MESSAGE } from "../../../apollo/queries/RoomQueries";
+import { useMutation, useSubscription } from "@apollo/client";
+import {
+  ADD_MESSAGE,
+  TYPING_USER_SUBSCRIPTION,
+} from "../../../apollo/requests/RoomRequests";
 
 interface Props {
   messages: Message[];
@@ -10,7 +13,12 @@ interface Props {
 }
 const RoomChat: React.FC<Props> = ({ messages, roomId }) => {
   const [addMessage, { data }] = useMutation(ADD_MESSAGE);
-  const [locallyAddedMessages, setLocallyAddedMessages] = useState([]);
+  const { data: typingPerson } = useSubscription(TYPING_USER_SUBSCRIPTION, {
+    variables: { roomId },
+  });
+  const [locallyAddedMessages, setLocallyAddedMessages] = useState<Message[]>(
+    []
+  );
 
   const handleMessageSend = (messages: IMessage[]) => {
     messages.forEach((m) => {
@@ -43,6 +51,13 @@ const RoomChat: React.FC<Props> = ({ messages, roomId }) => {
           },
         }))}
         inverted={false}
+        renderFooter={() =>
+          typingPerson && typingPerson.firstName ? (
+            <Text>{typingPerson.firstName} is typing...</Text>
+          ) : (
+            ""
+          )
+        }
         onSend={handleMessageSend}
       />
     </View>

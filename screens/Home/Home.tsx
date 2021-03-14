@@ -1,5 +1,5 @@
 import React from "react";
-import { GET_USERS_ROOMS } from "../../apollo/queries/RoomQueries";
+import { GET_USERS_ROOMS } from "../../apollo/requests/RoomRequests";
 import { useQuery } from "@apollo/client";
 import ContactList from "./ContactList/ContactList";
 import RoomList from "./RoomList/RoomList";

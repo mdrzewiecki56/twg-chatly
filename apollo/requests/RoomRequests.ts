@@ -44,6 +44,14 @@ export const MESSAGE_ADDED_SUBSCRIPTION = gql`
   }
 `;
 
+export const TYPING_USER_SUBSCRIPTION = gql`
+  subscription onUserTyping($roomId: String!) {
+    typingUser(roomId: $roomId) {
+      firstName
+    }
+  }
+`;
+
 export const ADD_MESSAGE = gql`
   mutation sendMessage($body: String!, $roomId: String!) {
     sendMessage(body: $body, roomId: $roomId) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { useQuery } from "@apollo/client";
-import { GET_ROOM } from "../../apollo/queries/RoomQueries";
+import { GET_ROOM } from "../../apollo/requests/RoomRequests";
 import RoomHeader from "./RoomHeader/RoomHeader";
 import RoomChat from "./RoomChat/RoomChat";
 

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useSubscription } from "@apollo/client";
-import { MESSAGE_ADDED_SUBSCRIPTION } from "../../../../apollo/queries/RoomQueries";
+import { MESSAGE_ADDED_SUBSCRIPTION } from "../../../../apollo/requests/RoomRequests";
 import CircleIcon from "../../../../components/CircleIcon";
 
 interface Props {
