@@ -1,11 +1,10 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ApolloProvider } from "@apollo/client";
-import client from "./apollo/client";
-import Home from "./screens/Home/Home";
-import Room from "./screens/Room/Room";
+import client from "./src/apollo/client";
+import Home from "./src/screens/Home/Home";
+import Room from "./src/screens/Room/Room";
 
 const App = () => {
   const Stack = createStackNavigator();

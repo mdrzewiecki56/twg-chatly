@@ -28,10 +28,12 @@ const RoomItem: React.FC<Props> = ({ room }) => {
             numberOfLines={1}
             style={styles.RoomItem__Text__Header__Timestamp}
           >
-            {!data ? "Loading..." : data.messageAdded.insertedAt.substr(11, 5)}
+            {!data ? "" : data.messageAdded.insertedAt.substr(11, 5)}
           </Text>
         </View>
-        <Text>{!data ? "Loading..." : data.messageAdded.body}</Text>
+        <Text numberOfLines={1} style={data ? {} : { color: "#b6b1c2" }}>
+          {!data ? "No new messages" : data.messageAdded.body}
+        </Text>
       </View>
     </View>
   );

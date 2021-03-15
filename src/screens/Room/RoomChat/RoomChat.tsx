@@ -43,7 +43,7 @@ const RoomChat: React.FC<Props> = ({ messages, roomId }) => {
         messages={[...messages, ...locallyAddedMessages].map((m) => ({
           _id: m.id,
           text: m.body,
-          createdAt: m.insertedAt,
+          createdAt: new Date(m.insertedAt),
           user: {
             _id: m.user.id,
             name: m.user.firstName,

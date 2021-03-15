@@ -1,7 +1,5 @@
 import React from "react";
 import { View, StyleSheet, Text, Pressable } from "react-native";
-import Loader from "../../../components/Loader";
-import CircleIcon from "../../../components/CircleIcon";
 
 interface Props {
   onBackPress: () => void;

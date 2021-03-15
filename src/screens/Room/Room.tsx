@@ -12,7 +12,7 @@ interface Props {
 
 const Room: React.FC<Props> = ({ navigation: { goBack }, route }) => {
   const { roomId } = route.params;
-  const { data, loading, error } = useQuery(GET_ROOM, {
+  const { data } = useQuery(GET_ROOM, {
     variables: { id: roomId },
   });
 
