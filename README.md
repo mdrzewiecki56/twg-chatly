@@ -11,7 +11,7 @@ To get the app up and working in dev mode you can just exectue a command in root
 - A chat that opens when a user chooses a room - Done
 - A user is able to send and receive messages in the chat - Done
 - The application should look similar to this mockup - Done (more or less, could use some adjustments)
-- Handle receiving messages via GraphQL subscriptions - App updates chat list with newly added messages but the view resets on refresh. It also does not show the last message sender (I need to redesign how data is passed through components to not to make few requests for one thing)
+- Handle receiving messages via GraphQL subscriptions - App updates chat list with newly added messages but the view resets on refresh. It also does not show the last message sender (I need to redesign how data is passed through components, so I don't make few requests for one thing)
 - Create Login and Signup pages - Not started
 - Test core logic - Not started
 
